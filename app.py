@@ -527,6 +527,7 @@ def zipDelivery(token):
     if request.method == "GET":
         transaction = session['transaction']
         user = session['user']
+	return "{}".format(session['user'])
         return render_template("zip/delivery.html", transaction = transaction,
             token = token, user = user)
     elif request.method == "POST":
