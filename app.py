@@ -241,6 +241,7 @@ def editProfile():
             getUrl = baseUrl + str(user['token'])
             request = requests.post(getUrl)
             response = json.loads(request.content)
+	    return "{}".format(response)
             if response['addresses'][0]['address_type'].lower() == "actual":
                 actual_address = response['addresses'][0]
                 postal_address = response['addresses'][1]
