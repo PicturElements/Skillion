@@ -524,10 +524,11 @@ def zipBuy(token):
 #-------------------------------------------------------------------------------
 @app.route('/zip/delivery/<token>', methods = ['GET', 'POST'])
 def zipDelivery(token):
+    #Seriously, fuck Arsalan Bashir. What was he fucking thinking when he wrote all this?
+    #I had to rewrite so much of his code to get it to work correctly. Fuck Arsalan.
     if request.method == "GET":
         transaction = session['transaction']
         user = session['user']
-	return "{}".format(session['user'])
         return render_template("zip/delivery.html", transaction = transaction,
             token = token, user = user)
     elif request.method == "POST":
