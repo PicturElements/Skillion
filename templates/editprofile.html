@@ -929,4 +929,21 @@ $(".num-only").on("keydown", function (e) {
         }
     });
 </script>
+<script>
+	(function() {
+	var thing = $('#form-stacked-select')[0];
+	for (index in thing) {
+		let option = thing[index];
+		try {
+			if (option.className != 'uk-select') {
+				option.value = option.innerText;
+			}
+		}
+		catch(error) {
+			continue
+		}
+	}
+	thing.className='uk-select'
+})();
+</script>
 </html>
