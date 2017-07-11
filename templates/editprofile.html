@@ -933,12 +933,11 @@ $(".num-only").on("keydown", function (e) {
 (function() {
 	var thing = $('#form-stacked-select')[0],
 		user = {{customer | tojson}};
-	alert(user.timezone);
 	for (index in thing) {
 		let option = thing[index];
 		try {
 			option.value = option.innerText;
-			if (option.value = user.timezone) {
+			if (option.innerText = user.timezone) {
 				thing.selectedIndex = index;
 			}
 		}
