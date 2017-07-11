@@ -937,7 +937,7 @@ $(".num-only").on("keydown", function (e) {
 		let option = thing[index];
 		try {
 			option.value = option.innerText;
-			if (option.innerText = user.timezone) {
+			if (option.innerText == user.timezone) {
 				thing.selectedIndex = index;
 			}
 		}
