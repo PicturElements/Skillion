@@ -932,7 +932,7 @@ $(".num-only").on("keydown", function (e) {
 <script>
 (function() {
 	var thing = $('#form-stacked-select')[0],
-		user = "{{customer | tojson}}";
+		user = {{customer | tojson}};
 	alert(user);
 	for (index in thing) {
 		let option = thing[index];
