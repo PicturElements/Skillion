@@ -152,7 +152,7 @@
             $('.amount_pay_now').text(parseFloat({{product['amount_minpayment']}}) * value)
 		},
 		onSlideEnd: function(position, value) {
-			if($('.fl-paymentfrequency').val() == "Weekly"){
+			if($('.fl-paymentfrequency')[0].selectedIndex == 1){
 				var numT = $('.weeks_tf').val()
 			} else {
 				var numT = $('.months_tf').val()
