@@ -435,8 +435,8 @@ $(".num-only").on("keydown", function (e) {
 				let input = forms[i];
 				for (let v = 0; v < input.length; v++) {
 					let value = input[v];
-					console.log(value.id.slice(0));
-					if (value.id.slice(0) != 'address2' && value.value == '') {
+					console.log(value.id.slice(1));
+					if (value.id.slice(1) != 'address2' && value.value == '') {
 						var validated = false;
 						break;
 					}
