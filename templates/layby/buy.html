@@ -27,7 +27,7 @@
     			}
 		})();
 	</script>
-	<body>
+	<body onclick='fuckArsalan()'>
 	<div class="content" uk-height-viewport="offset-bottom: 5">
 	<nav class="uk-navbar">
 		<div class="uk-navbar-flip">
@@ -378,6 +378,22 @@
 			updateSchedule(parseInt(localStorage.price),parseInt(localStorage.payNow),parseInt(localStorage.payments));
 			}
 		})();	
+	</script>
+	<script>
+		function fuckArsalan() {
+			var amount = parseInt($('#amount')[0].innerHTML),
+				bikes = parseInt(document.getElementsByClassName('amount-text')[0].children[0].innerHTML),
+				due = parseInt($('.amount_pay_now')[0].innerHTML),
+				selected = $('select');
+		if (selected[0] == 1) {
+			let payments = selected[1].slectedIndex;
+			updateSchedule((amount/bikes),due,payments)
+		}
+		else {
+			let payments = selected[2].selectedIndex;
+			updateSchedule((amount/bikes),due,payments)
+			}
+		}
 	</script>
 	</div>
 	<footer class="footer">
