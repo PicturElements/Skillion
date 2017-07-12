@@ -121,6 +121,7 @@
 			"amount_deposit": parseInt(deposit),
 			"nbr_of_payments": parseInt(number)
 		};
+		console.log(data);
 		$.post('/api/v1/schedule',data,function(response,status){
 			console.log(response);
 			if(parseInt(JSON.parse(response).amount_partpayment) == 0){
