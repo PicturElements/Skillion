@@ -1,0 +1,58 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Marketplace
+Gist
+ @william-t-hicks
+ Sign out
+ Watch 0
+  Star 0
+  Fork 2 william-t-hicks/Skillion
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Settings Insights 
+Branch: master Find file Copy pathSkillion/templates/errors/success.html
+40dfef4  on Jun 8
+ Arsalan Bashir Production V1
+0 contributors
+RawBlameHistory     
+38 lines (37 sloc)  1.47 KB
+<!DOCTYPE html>
+<html class="offset-body">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Succeeded</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/uikit.css"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/theme.css"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"></script>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+</head>
+<body>
+    <nav class="uk-navbar" style="background: #5F5E5F">
+        <div class="uk-navbar-flip">
+            <ul class="uk-navbar-nav">
+                <li><a href="https://skillion.com.au" class="top-logo">Skillion</a></li>
+                <li><a href="/seller/r2XI3VkW3eG3M1A0RgsW">Shop Skillion</a></li>
+                <li><a href="/purchases">My Skillions</a></li>
+                <li><a href="/payments">My Payments</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                {% if name %}
+                <li><a href="/profile/edit">{{name}}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div style="padding: 320px; text-align: center;">
+        <h2 style="font-family: Lato; color: #FFB02E;">Your payment has been refered. Please check zip for further updates.</h2>
+        <p style="color: #FFF;">
+            <a href="/">Go here now!</a>
+        </p>
+    </div>
+</body>
+</html>
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
