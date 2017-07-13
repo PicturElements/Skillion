@@ -902,6 +902,10 @@ def information():
 def callbackZipDecline():
     return render_template('errors/decline.html')
 #-------------------------------------------------------------------------------
+@app.route('/callback/zip/refer')
+def callbackZipDecline():
+	return render_template('errors/refer.html')
+#-------------------------------------------------------------------------------
 @app.route('/privacy')
 def privacyPolicy():
     return render_template('errors/privacy.html')
