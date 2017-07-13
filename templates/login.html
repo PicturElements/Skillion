@@ -12,6 +12,14 @@
     <script type="text/javascript" src="https://getuikit.com/assets/uikit/dist/js/uikit-icons.js?nc=2473"></script>
     <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+    <script>
+	    (function() {
+		    var user = "{{session['user'] | string}}";
+		    if (user) {
+			    window.location.href = 'https://www.skillion.com.au'
+		    }
+	    })();
+    </script>
 </head>
 <body class="offset-body">
     <div class="uk-child-width-1-2" uk-grid>
