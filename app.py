@@ -990,7 +990,7 @@ def send_specs(first_name, email, phm, phm2):
     payload['phm2'] = str(phm2)
     headers = {'content-type':'application/json'}
     requests.post(BASE_URL, data=json.dumps(payload),headers=headers)
-    return redirect('/')
+    return redirect('https://www.skillion.com.au/thank-you/')
 
 #---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
