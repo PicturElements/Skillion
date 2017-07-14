@@ -149,9 +149,9 @@ function zipPaymentHandler() {
     data['order']['detail'][0]['id'] = String($('#orderID').attr("data-oi"));
 	data['order']['detail'][0]['image_url'] = "https://www.fulfilleddesires.net/uploads/skilz/images/17778938_183163325526430_2010877634_o.jpg";
 
-	data['merchant_id'] = "3037";
+	data['merchant_id'] = "3033";
 	data['merchant_key'] = "YKwZWzacF9AOMfvslXeyMYq8/EBSj9FrpsPqpp4J8ZE=";
-	$.post('/zip/setup/sandbox', {'key': JSON.stringify(data)}, function(response, status){
+	$.post('/zip/setup', {'key': JSON.stringify(data)}, function(response, status){
 		$('#theFrame').attr('src', response)
 	});
 }</script>
