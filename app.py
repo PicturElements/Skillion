@@ -555,7 +555,7 @@ def sandboxSetupZip():
         from flask import jsonify
         data = json.loads(request.form['key'])
         headers = {'content-type': 'application/json'}
-        POST_URL = 'https://api.sandbox.zipmoney.com.au/v1/checkout'
+        POST_URL = 'https://api.zipmoney.com.au/v1/checkout'
         payload = str(data).replace("'", '"').replace('u"', '"')
         r = requests.post(POST_URL, data=payload, headers=headers)
         return str(json.loads(r.content)['redirect_url'])
