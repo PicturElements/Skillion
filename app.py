@@ -987,9 +987,9 @@ def send_specs():
     	import json
     	import requests
     	data = json.loads(request.data)
-	session['test'] = data
+	session['test'] = 'CUNTS'
     	payload = dict()
-    	payload.update(first_name=data.get('your-name'), email=data.get('your-email'), phm=data.get('your-phone')[:1],phm2=data.get('your-phone')[2:])
+    	payload.update(first_name=data.get('first_name'), email=data.get('email'), phm=data.get('phm')[:1],phm2=data.get('phm2')[2:])
     	requests.post(BASE_URL, data=payload)
     	return redirect('/')
     else:
