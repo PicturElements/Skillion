@@ -547,6 +547,20 @@ def setupZip():
         return str(json.loads(r.content)['redirect_url'])
     else:
         return "Nothing to see here."
+#--------------------------------------------------------------------------------
+@app.route('/zip/setup/sandbox', methods=['GET', 'POST'])
+def sandboxSetupZip():
+    if request.method == "POST":
+        import json
+        from flask import jsonify
+        data = json.loads(request.form['key'])
+        headers = {'content-type': 'application/json'}
+        POST_URL = 'https://api.sandbox.zipmoney.com.au/v1/checkout'
+        payload = str(data).replace("'", '"').replace('u"', '"')
+        r = requests.post(POST_URL, data=payload, headers=headers)
+        return str(json.loads(r.content)['redirect_url'])
+    else:
+        return "Nothing to see here."
 #-------------------------------------------------------------------------------
 @app.route('/zipstdby', methods=['GET', 'POST'])
 def zipddd():
@@ -817,6 +831,56 @@ def internalError(e):
 #-------------------------------------------------------------------------------
 @app.route('/callback/zip/primary', methods=['GET', 'POST'])
 def primaryZipCallback():
+    if request.method == "POST":
+        import json
+        req_dump = json.loads(request.data)
+        print req_dump
+        innerReq = json.loads(req_dump["Message"])
+        if req_dump["Subject"] == "charge_succeeded":
+            orderid = innerReq['response']['order_id']
+            POST_URL = FINAL_PAYMENTS_URL + orderid
+            payload = {}
+            headers = {'content-type': 'application/json'}
+            payload["payments"] = {
+                "amount_total": 4950,
+                "description":"Skillion Charge",
+                "payment_method":"ZipMoney",
+                "payment_method_info": innerReq['response']['txn_id'], "amount_currency":"AUD"}
+            r = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
+            return "200 OK"
+        elif req_dump["Subject"] == "authorise_under_review":
+	    orderid = innerReq['response']['order_id']
+	    POST_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=dor-retire&identifier=' + orderid #thingie=dor-retire
+	    payload = dict() 
+	    payload.update(referall=True)
+	    headers = {'content-type': 'application/json'}
+	    requests.post(POST_URL, data=json.dumps(payload), headers=headers)
+            return "200 OK"
+        elif req_dump["Subject"] == "authorise_approved":
+            orderid = innerReq['response']['order_id']
+            POST_URL = FINAL_PAYMENTS_URL + orderid
+            payload = {}
+            headers = {'content-type': 'application/json'}
+            payload["payments"] = {
+                "amount_total": 4950,
+                "description":"Skillion Charge",
+                "payment_method":"ZipMoney",
+                "payment_method_info": innerReq['response']['txn_id'], "amount_currency":"AUD"}
+            r = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
+            return "200 OK"
+        elif req_dump["Subject"] == "authorise_declined":
+            orderid = innerReq['response']['order_id']
+            POST_URL = ZIP_DECLINE_URL + orderid
+            payload = {}
+            headers = {'content-type': 'application/json'}
+            payload["aint_no_sunshine"] = "when sheeeeeez gooooone"
+            r = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
+            return "200 OK"
+    else:
+        return render_template('errors/success.html')
+
+@app.route('/callback/zip/primary/sandbox', methods=['GET', 'POST'])
+def sandboxZipCallback():
     if request.method == "POST":
         import json
         req_dump = json.loads(request.data)
