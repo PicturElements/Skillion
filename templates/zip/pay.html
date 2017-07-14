@@ -87,6 +87,7 @@ $(document).ready(function(){
 
 var sendLineItems = function(str_obj){
     $.post('/orderlines', {'key': str_obj}, function(resp, stat){
+	    console.log(JSON.parse(resp))
         $("#orderID").attr("data-oi", JSON.parse(resp)['order']['id'])
         zipPaymentHandler();
         $('#cover').fadeOut(1000);
