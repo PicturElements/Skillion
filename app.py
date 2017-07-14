@@ -982,16 +982,18 @@ def privacyPolicy():
 #-------------------------------------------------------------------------------
 @app.route('/send_specs', methods=['GET','POST'])
 def send_specs():
-    BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
-    import json
-    import requests
-    data = json.loads(str(request.get_data()))
-    if not data:
-	raise Exception 
-    payload = dict()
-    payload.update(first_name=data.get('your-name'), email=data.get('your-email'), phm=data.get('your-phone')[:1],phm2=data.get('your-phone')[2:])
-    requests.post(BASE_URL, data=payload)
-    return redirect('/')
+    if request.method == 'GET'
+    	BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
+    	import json
+    	import requests
+    	data = json.loads(str(request.get_data()))
+	session['test'] = data
+    	payload = dict()
+    	payload.update(first_name=data.get('your-name'), email=data.get('your-email'), phm=data.get('your-phone')[:1],phm2=data.get('your-phone')[2:])
+    	requests.post(BASE_URL, data=payload)
+    	return redirect('/')
+    else:
+	return "Here is the data:\n\n{}".format(session['test'])
 #---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
 def sendBB():
