@@ -986,7 +986,6 @@ def send_specs():
     	BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
     	import requests
     	data = request.json
-	session['test'] = data
     	payload = dict()
     	payload.update(first_name=data.get('first_name'), email=data.get('email'), phm=data.get('phm')[:1],phm2=data.get('phm2')[2:])
     	requests.post(BASE_URL, data=payload)
@@ -995,7 +994,7 @@ def send_specs():
 	try: 
 		return "Here is the data:\n\n{}".format(session['test'])
 	except Exception as e:
-		return '{}'.format(e)
+		return 'error: {}'.format(e)
 #---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
 def sendBB():
