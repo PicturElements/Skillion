@@ -909,7 +909,7 @@ def callbackZipDecline():
     return render_template('errors/decline.html')
 #-------------------------------------------------------------------------------
 @app.route('/callback/zip/refer')
-def callbackZipDecline():
+def callbackZipRefer():
 	return render_template('errors/refer.html')
 #-------------------------------------------------------------------------------
 @app.route('/privacy')
