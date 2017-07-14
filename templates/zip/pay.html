@@ -151,7 +151,7 @@ function zipPaymentHandler() {
 
 	data['merchant_id'] = "3033";
 	data['merchant_key'] = "YKwZWzacF9AOMfvslXeyMYq8/EBSj9FrpsPqpp4J8ZE=";
-	$.post('/zip/setup', {'key': JSON.stringify(data)}, function(response, status){
+	$.post('/zip/setup/sandbox', {'key': JSON.stringify(data)}, function(response, status){
 		$('#theFrame').attr('src', response)
 	});
 }</script>
