@@ -982,7 +982,7 @@ def privacyPolicy():
 #-------------------------------------------------------------------------------
 @app.route('/send_specs', methods=['GET','POST'])
 def send_specs():
-    if request.method == 'GET'
+    if request.method == 'POST'
     	BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
     	import json
     	import requests
