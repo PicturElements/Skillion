@@ -980,6 +980,17 @@ def callbackZipRefer():
 def privacyPolicy():
     return render_template('errors/privacy.html')
 #-------------------------------------------------------------------------------
+@app.route('/send_specs', methods=['POST'])
+def send_specs():
+    BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
+    import json
+    import requests
+    data = json.loads(request.data)
+    payload = dict()
+    payload.update(name=data.get('your-name'), email=data.get('your-email'), phone=data.get('your-phone'))
+    requests.post(BASE_URL, data=payload)
+
+
 @app.route('/api/v1/bomb')
 def sendBB():
     vid_id = request.args.get('email_id', 0)
