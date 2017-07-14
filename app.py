@@ -984,13 +984,12 @@ def privacyPolicy():
 def send_specs():
     if request.method == 'POST':
     	BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
-    	import requests
-	print(request.json)
     	data = request.json
     	payload = dict()
     	payload.update(first_name=data.get('first_name'), email=data.get('email'), phm=data.get('phm')[:1],phm2=data.get('phm2')[2:])
-    	requests.post(BASE_URL, data=payload)
-    	return redirect('/')
+    	headers {'content-type':'application/json'}
+	requests.post(BASE_URL, data=json.dumps(payload),headers=headers)
+    	return "200 OK"
 #---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
 def sendBB():
