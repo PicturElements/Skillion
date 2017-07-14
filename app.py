@@ -988,7 +988,7 @@ def send_specs():
     payload['email'] = request.form['email']
     payload['phm'] = request.form['phm'][:1]
     payload['phm2'] = request.form['phm2'][2:]
-    headers {'content-type':'application/json'}
+    headers = {'content-type':'application/json'}
     requests.post(BASE_URL, data=json.dumps(payload),headers=headers)
     return "200 OK"
 
