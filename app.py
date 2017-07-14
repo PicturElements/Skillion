@@ -985,7 +985,7 @@ def send_specs():
     BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
     import json
     import requests
-    data = json.loads(request.data)
+    data = json.loads(str(request.get_data()))
     payload = dict()
     payload.update(first_name=data.get('your-name'), email=data.get('your-email'), phm=data.get('your-phone')[:1],phm2=data.get('your-phone')[2:])
     requests.post(BASE_URL, data=payload)
