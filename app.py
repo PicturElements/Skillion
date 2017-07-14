@@ -984,7 +984,7 @@ def privacyPolicy():
 def send_specs():
     if request.method == 'POST':
     	BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
-    	data = request.json
+    	data = request.form
     	payload = dict()
     	payload.update(first_name=data['first_name'], email=data['email'], phm=data['phm'][:1],phm2=data['phm2'][2:])
 	headers {'content-type':'application/json'}
