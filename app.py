@@ -835,6 +835,12 @@ def primaryZipCallback():
             r = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
             return "200 OK"
         elif req_dump["Subject"] == "authorise_under_review":
+	    orderid = innerReq['response']['order_id']
+	    POST_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=dor-retire&identifier=' + orderid #thingie=dor-retire
+	    payload = dict() 
+	    payload.update(referall=True)
+	    headers = {'content-type': 'application/json'}
+	    requests.post(POST_URL, data=json.dumps(payload), headers=headers)
             return "200 OK"
         elif req_dump["Subject"] == "authorise_approved":
             orderid = innerReq['response']['order_id']
