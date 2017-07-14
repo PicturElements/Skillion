@@ -980,17 +980,17 @@ def callbackZipRefer():
 def privacyPolicy():
     return render_template('errors/privacy.html')
 #-------------------------------------------------------------------------------
-@app.route('/send_specs', methods=['POST'])
-def send_specs():
+@app.route('/specs/<first_name>/<email>/<phm>/<phm2>', methods=['GET'])
+def send_specs(first_name, email, phm, phm2):
     BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
     payload = {}
-    payload['first_name'] = request.form['first_name']
-    payload['email'] = request.form['email']
-    payload['phm'] = request.form['phm'][:1]
-    payload['phm2'] = request.form['phm2'][2:]
+    payload['first_name'] = str(first_name)
+    payload['email'] = str(email)
+    payload['phm'] = str(phm)
+    payload['phm2'] = str(phm2)
     headers = {'content-type':'application/json'}
     requests.post(BASE_URL, data=json.dumps(payload),headers=headers)
-    return "200 OK"
+    return redirect('/')
 
 #---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
