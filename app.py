@@ -993,7 +993,10 @@ def send_specs():
     	requests.post(BASE_URL, data=payload)
     	return redirect('/')
     else:
-	return "Here is the data:\n\n{}".format(session['test'])
+	try: 
+		return "Here is the data:\n\n{}".format(session['test'])
+	except Exception as e:
+		return '{}'.format(e)
 #---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
 def sendBB():
