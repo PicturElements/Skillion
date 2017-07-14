@@ -1006,6 +1006,9 @@ def sendBombbomb(email, videoId):
     except Exception as e:
         return e
 
+@app.route('/finance_your_bike')
+def finance_your_bike():
+	return render_template('finance.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
