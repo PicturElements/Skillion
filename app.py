@@ -987,11 +987,10 @@ def send_specs():
     import requests
     data = json.loads(request.data)
     payload = dict()
-    payload.update(first_name=data.get('your-name'), email=data.get('your-email'), phn=data.get('your-phone')[:1],phn2=data.get('your-phone')[2:])
+    payload.update(first_name=data.get('your-name'), email=data.get('your-email'), phm=data.get('your-phone')[:1],phm2=data.get('your-phone')[2:])
     requests.post(BASE_URL, data=payload)
     return redirect('/')
-
-
+#---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
 def sendBB():
     vid_id = request.args.get('email_id', 0)
