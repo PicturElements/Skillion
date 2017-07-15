@@ -994,7 +994,7 @@ def send_specs():
     	else:
 		return redirect('https://www.skillion.com.au')
     else:
-	return redirec('/')
+	return redirec('/profile')
 
 #---------------------------------------------------------------------------------
 @app.route('/api/v1/bomb')
