@@ -987,8 +987,6 @@ def send_specs():
     	payload = {}
     	payload['first_name'] = request.form['name']
     	payload['email'] = request.form['email']
-    	payload['phm'] = request.form['phm']
-    	payload['phm2'] = request.form['phm2']
     	headers = {'content-type':'application/json'}
     	thing = requests.post(BASE_URL, data=json.dumps(payload),headers=headers)
     	if thing.status_code == '200':
