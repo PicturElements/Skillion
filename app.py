@@ -379,14 +379,14 @@ def payOutright(token):
     if request.method == "GET":
         user = session['user']
         return render_template("outright/pay.html",
-            keys = "pk_test_JvYffOKVrAyerfnvecmzjsjr",
+            keys = "pk_live_LaRDWV5BeyF4EcTIQa7rbYdr",
             token = user['token'], product_token = token,
             user = user)
     elif request.method == "POST":
         import stripe
         amount = int(request.form['amount_bill']) * 100
         token = request.form['stripeToken']
-        stripe.api_key = "sk_test_f5JjDn0WKFAUAtAlolyQyHBs"
+        stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         try:
             charge = stripe.Charge.create(
                 amount=int(amount),
@@ -459,14 +459,14 @@ def payLayby(token):
     if request.method == "GET":
         user = session['user']
         return render_template("layby/pay.html",
-            keys = "pk_test_JvYffOKVrAyerfnvecmzjsjr",
+            keys = "pk_live_LaRDWV5BeyF4EcTIQa7rbYdr",
             token = user['token'], product_token = token,
             user = user)
     elif request.method == "POST":
         import stripe
         amount = int(request.form['amount_bill']) * 100
         token = request.form['stripeToken']
-        stripe.api_key = "sk_test_f5JjDn0WKFAUAtAlolyQyHBs"
+        stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         user = session['user']
         try:
             charge = stripe.Charge.create(
