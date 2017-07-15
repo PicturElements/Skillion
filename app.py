@@ -132,7 +132,6 @@ def loginPage():
     elif request.method == "POST":
         email = request.form['email']
         password = request.form['password']
-	return "TRUE"
         baseUrl = GLOBAL_BASE_URL + "/REST-Customer.awp?Procedure=Customer_LogIn&User="
         loginUrl = baseUrl + email + "&Pwd=" + password
         requestWWW = requests.post(loginUrl)
