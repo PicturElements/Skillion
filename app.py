@@ -644,14 +644,14 @@ def payAll(currency, amount, id):
     user = session['user']
     if request.method == "GET":
         return render_template("stripe.html",
-            keys = "pk_test_JvYffOKVrAyerfnvecmzjsjr",
+            keys = "pk_live_LaRDWV5BeyF4EcTIQa7rbYdr",
             currency = currency, amount = amount, rec = True, id = id,
             user = session['user'])
     if request.method == "POST":
         import stripe
         token = request.form['stripeToken']
         amount = int(request.form['amount']) * 100
-        stripe.api_key = "sk_test_f5JjDn0WKFAUAtAlolyQyHBs"
+        stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         charge = stripe.Charge.create(
             amount=int(amount),
             currency=str(currency),
@@ -679,14 +679,14 @@ def payRec():
     user = session.get('user')
     if request.method == "GET":
         return render_template("stripepp.html",
-            keys = "pk_test_JvYffOKVrAyerfnvecmzjsjr",
+            keys = "pk_live_LaRDWV5BeyF4EcTIQa7rbYdr",
             currency = request.cookies.get('currency'), amount = float(request.cookies.get('amount')), rec = True, id = int(request.cookies.get('id')),
             user = session['user'])
     if request.method == "POST":
         import stripe
         token = request.form['stripeToken']
         amount = float(request.form['amount']) * 100
-        stripe.api_key = "sk_test_f5JjDn0WKFAUAtAlolyQyHBs"
+        stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         charge = stripe.Charge.create(
             amount=amount,
             currency=currency,
