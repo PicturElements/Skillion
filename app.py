@@ -130,8 +130,8 @@ def loginPage():
             success = None
         return render_template("login.html", error = error, success = success)
     elif request.method == "POST":
-        email = request.form['email']
-        password = request.form['password']
+        email = request.form.get('email')
+        password = request.form.get('password')
         baseUrl = GLOBAL_BASE_URL + "/REST-Customer.awp?Procedure=Customer_LogIn&User="
         loginUrl = baseUrl + email + "&Pwd=" + password
         requestWWW = requests.post(loginUrl)
