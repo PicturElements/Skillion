@@ -986,7 +986,7 @@ def send_specs():
     if request.method == 'POST':
     	BASE_URL = 'https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=send.me.specs'
     	payload = {}
-    	payload['first_name'] = re.sub('\s\d+','',request.form['name'])
+    	payload['first_name'] = re.sub('\s\w+','',request.form['name'])
     	payload['email'] = request.form['email']
     	headers = {'content-type':'application/json'}
     	thing = requests.post(BASE_URL, data=json.dumps(payload),headers=headers)
