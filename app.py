@@ -350,7 +350,7 @@ def buyOutright(token):
 	else:
 		return render_template('outright/buy.html', product = product[0], token=token, guestmode = False)
     elif request.method == "POST":
-        session['transaction'] = {'amount': request.form.get('amount'),
+        session['transaction'] = {'amount': int(request.form.get('amount')),
             'cost_per_item': request.form.get('cost_per_item'),
             'no_bikes': request.form.get('no_bikes'),
             'part_payment': request.form.get('part_payment'),
