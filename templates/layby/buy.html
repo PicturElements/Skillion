@@ -171,7 +171,7 @@
 		handleClass: 'rangeslider__handle',
 		onInit: function() {},
 		onSlide: function(position, value) {
-			$('#amount').text(String({{product['amount_total']}} * value));
+			$('#amount').text(parseFloat(String({{product['amount_total']}} * value)).toFixed(2));
 			$('.amount-text span').text(value);
 			$('.amount_pay_now').text(parseFloat({{product['amount_minpayment']}}) * value);
 		},
