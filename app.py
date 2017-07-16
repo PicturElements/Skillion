@@ -395,7 +395,7 @@ def payOutright(token):
             POST_URL = FINAL_PAYMENTS_URL + request.form['orderid']
             payload = {}
             payload["payments"] = {
-                "amount_total": round(float(request.form['amount_bill']),2)
+                "amount_total": round(float(request.form['amount_bill']),2),
                 "description":"Skillion Charge",
                 "payment_method":"Stripe",
                 "payment_method_info": str(token), "amount_currency":"AUD"}
