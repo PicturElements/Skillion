@@ -429,7 +429,7 @@ def buyLayby(token):
     	if not product:
         	return render_template('errors/outofstock.html')
 	else:
-		return render_template('layby/buy.html', guestmode= False, token = token, product = product[0)
+		return render_template('layby/buy.html', guestmode= False, token = token, product = product[0])
     else:
         session['transaction'] = {'amount': request.form.get('amount_pay_now'),
          'amount_total': request.form.get('total_amount'),
