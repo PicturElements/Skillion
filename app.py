@@ -421,11 +421,11 @@ def buyLayby(token):
     from flask import request
     if request.method == "GET":
         import json
-        GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
-        request = requests.post(GET_URL)
-        product = json.loads(request.content)["product"]
-        return render_template("layby/buy.html", product = product[0],
-            token = token, guestmode = False)
+    	GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
+    	data = requests.post(GET_URL)
+    	product = json.loads(data.content)['product']
+    	if not product:
+        	return render_template('errors/outofstock.html')
     else:
         session['transaction'] = {'amount': request.form.get('amount_pay_now'),
          'amount_total': request.form.get('total_amount'),
