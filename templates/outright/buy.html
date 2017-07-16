@@ -75,8 +75,8 @@
 		handleClass: 'rangeslider__handle',
 		onInit: function() {},
 		onSlide: function(position, value) {
-			$('#amount').text(String({{product['amount_total']}} * value));
-			$('.amount-text span').text(value.toFixed(2));
+			$('#amount').text((String({{product['amount_total']}} * value)).toFixed(2));
+			$('.amount-text span').text(value);
 		},
 		onSlideEnd: function(position, value) {}
 	});
