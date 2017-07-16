@@ -344,8 +344,7 @@ def buyOutright(token):
         import json
     	GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
     	data = requests.post(GET_URL)
-    	product = json.loads(data.content)
-	return "{}".format(product)
+    	product = json.loads(data.content)['product']
     	if not product:
         	return render_template('errors/outofstock.html')
     elif request.method == "POST":
