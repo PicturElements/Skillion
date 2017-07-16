@@ -347,11 +347,6 @@ def buyOutright(token):
     	product = json.loads(data.content)
     	if not product:
         	return render_template('errors/outofstock.html')
-        GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
-	request = requests.post(GET_URL)
-        product = json.loads(request.content)["product"]
-        return render_template("outright/buy.html", product = product[0],
-            token = token, guestmode = False)
     elif request.method == "POST":
         session['transaction'] = {'amount': request.form.get('amount'),
             'cost_per_item': request.form.get('cost_per_item'),
