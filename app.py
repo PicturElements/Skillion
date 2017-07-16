@@ -382,12 +382,12 @@ def payOutright(token):
             user = user)
     elif request.method == "POST":
         import stripe
-        amount = int(request.form['amount_bill']) * 100
+        amount = round(float(request.form['amount_bill']) * 100),2)
         token = request.form['stripeToken']
         stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         try:
             charge = stripe.Charge.create(
-                amount=int(amount),
+                amount=amount,
                 currency="AUD",
                 description="Skillion Charge",
                 source=token,)
@@ -395,7 +395,7 @@ def payOutright(token):
             POST_URL = FINAL_PAYMENTS_URL + request.form['orderid']
             payload = {}
             payload["payments"] = {
-                "amount_total": int(request.form['amount_bill']),
+                "amount_total": round(float(request.form['amount_bill']),2)
                 "description":"Skillion Charge",
                 "payment_method":"Stripe",
                 "payment_method_info": str(token), "amount_currency":"AUD"}
@@ -462,13 +462,13 @@ def payLayby(token):
             user = user)
     elif request.method == "POST":
         import stripe
-        amount = int(request.form['amount_bill']) * 100
+        amount = round(float(request.form['amount_bill']) * 100,2)
         token = request.form['stripeToken']
         stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         user = session['user']
         try:
             charge = stripe.Charge.create(
-                amount=int(amount),
+                amount=amount,
                 currency="AUD",
                 description="Skillion Charge",
                 source=token,)
@@ -648,10 +648,10 @@ def payAll(currency, amount, id):
     if request.method == "POST":
         import stripe
         token = request.form['stripeToken']
-        amount = int(request.form['amount']) * 100
+        amount = round(float(request.form['amount']) * 100,2)
         stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         charge = stripe.Charge.create(
-            amount=int(amount),
+            amount=amount,
             currency=str(currency),
             description="Skillion Charge",
             source=token,)
