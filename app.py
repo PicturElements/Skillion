@@ -759,7 +759,7 @@ def guestMode(a_token, nextmode):
     if request.method == "GET":
 	GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
 	data = requests.post(GET_URL)
-	out_of_stock = json.loads(data.content)['product']['out_of_stock']
+	out_of_stock = json.loads(data.content)['product']
 	return "{}".format(data.content.decode('utf-8'))
 	if out_of_stock in [True, 'true']:
 		return render_template('errors/outofstock.html')
