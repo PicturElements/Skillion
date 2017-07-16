@@ -382,7 +382,7 @@ def payOutright(token):
             user = user)
     elif request.method == "POST":
         import stripe
-        amount = round(float(request.form['amount_bill']) * 100),2)
+        amount = round(float(request.form['amount_bill']) * 100,2)
         token = request.form['stripeToken']
         stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         try:
