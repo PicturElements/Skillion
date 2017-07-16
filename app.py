@@ -340,13 +340,14 @@ def sellerListing(token):
 @app.route('/outright/buy/<token>', methods = ['GET', 'POST'])
 def buyOutright(token):
     from flask import request
-    GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
-    data = requests.post(GET_URL)
-    product = json.loads(data.content)['product']
-    if not product:
-        return render_template('errors/outofstock.html')
     if request.method == "GET":
         import json
+    	GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
+    	data = requests.post(GET_URL)
+    	product = json.loads(data.content)['product']
+	return "{}".format(product)
+    	if not product:
+        	return render_template('errors/outofstock.html')
         GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
 	request = requests.post(GET_URL)
         product = json.loads(request.content)["product"]
