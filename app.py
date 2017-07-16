@@ -426,7 +426,7 @@ def buyLayby(token):
 	else:
 		return render_template('layby/buy.html', guestmode= False, token = token, product = product[0])
     else:
-        session['transaction'] = {'amount': request.form.get('amount_pay_now'),
+        session['transaction'] = {'amount': round(float(request.form.get('amount_pay_now')),2),
          'amount_total': request.form.get('total_amount'),
          'no_bikes': request.form.get('no_bikes'),
           'part_payment': request.form.get('part_payment'),
