@@ -757,6 +757,11 @@ def guestMode(a_token, nextmode):
     token = a_token
     from flask import request
     if request.method == "GET":
+	GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
+	data = requests.post(GET_URL)
+	out_of_stock = json.loads(data.content)['product'][0]['out_of_stock']
+	if (out_of_stock):
+		return render_template('errors/outofstock.html')
         if nextmode == "outright":
             GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
 	    r = requests.post(GET_URL) #can't name something after an imported module or class - bad practice
