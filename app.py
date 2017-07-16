@@ -326,6 +326,11 @@ def editProfile():
 #-------------------------------------------------------------------------------
 @app.route('/seller/<token>', methods = ['GET', 'POST'])
 def sellerListing(token):
+    GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
+    data = requests.post(GET_URL)
+    product = json.loads(data.content)['product']
+    if not product:
+        return render_template('errors/outofstock.html')
     if session['user']:
         user = session['user']
         GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_List&Token=' + token
