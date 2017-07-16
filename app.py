@@ -362,11 +362,6 @@ def buyOutright(token):
 @app.route('/outright/delivery/<token>', methods = ['GET', 'POST'])
 def deliveryOutright(token):
     if request.method == "GET":
-    	GET_URL = GLOBAL_BASE_URL + '/REST-Customer.awp?Procedure=Product_Details&Token=' + token
-    	data = requests.post(GET_URL)
-    	product = json.loads(data.content)
-    	if not product:
-        	return render_template('errors/outofstock.html')
         transaction = session['transaction']
         user = session['user']
 	import json, requests, re
