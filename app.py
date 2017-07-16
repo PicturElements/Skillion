@@ -683,7 +683,7 @@ def payRec():
     if request.method == "POST":
         import stripe
         token = request.form['stripeToken']
-        amount = float(request.form['amount']) * 100
+        amount = round(float(request.form['amount']) * 100,2)
         stripe.api_key = "sk_live_K7ufb5SbyF5gp8m8YzOkRlCC"
         charge = stripe.Charge.create(
             amount=amount,
