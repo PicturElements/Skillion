@@ -347,6 +347,8 @@ def buyOutright(token):
     	product = json.loads(data.content)['product']
     	if not product:
         	return render_template('errors/outofstock.html')
+	else:
+		return render_template('outright/buy.html', product = product[0], token=token, guestmode = False)
     elif request.method == "POST":
         session['transaction'] = {'amount': request.form.get('amount'),
             'cost_per_item': request.form.get('cost_per_item'),
@@ -426,6 +428,8 @@ def buyLayby(token):
     	product = json.loads(data.content)['product']
     	if not product:
         	return render_template('errors/outofstock.html')
+	else:
+		return render_template('layby/buy.html', guestmode= False, token = token, product = product[0)
     else:
         session['transaction'] = {'amount': request.form.get('amount_pay_now'),
          'amount_total': request.form.get('total_amount'),
