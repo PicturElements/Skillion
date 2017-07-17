@@ -1035,7 +1035,7 @@ def sendBombbomb(email, videoId):
 def finance_your_bike():
 	return render_template('finance.html')
 
-@app.route('/test-ride')
+@app.route('/test-ride', methods=["POST"])
 def scheduleTestRide():
     import json 
     POST_URL="https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=test-drive"
