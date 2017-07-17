@@ -1040,7 +1040,7 @@ def scheduleTestRide():
     import json 
     POST_URL="https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=test-drive"
     first_name = request.form['your-name']
-    email = request.form['email']
+    email = request.form['your-phone']
     payload = {'email':email, 'first_name': first_name}
     headers = {'Content-type': 'application/json'}
     requests.post(POST_URL, data=payload, headers=headers)
