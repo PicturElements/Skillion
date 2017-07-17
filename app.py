@@ -1035,5 +1035,15 @@ def sendBombbomb(email, videoId):
 def finance_your_bike():
 	return render_template('finance.html')
 
+@app.route('/test-ride')
+def scheduleTestRide():
+    import json 
+    POST_URL="https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=test-drive"
+    first_name = request.form['your-name']
+    email = request.form['email']
+    payload = {'email':email, 'first_name': first_name}
+    headers = {'Content-type': 'application/json'}
+    requests.post(POST_URL, data=payload, headers=headers)
+
 if __name__ == "__main__":
     app.run(debug=True)
