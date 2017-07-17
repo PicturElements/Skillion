@@ -618,4 +618,9 @@ footer .uk-breadcrumb {
 	footer .uk-breadcrumb {
 		left: 0;
 	}
+	
+	.content .box-holder {
+		margin: 1% 10%;
+	}
+
 }
