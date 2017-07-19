@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html class="offset-body">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Succeeded</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/uikit.css"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/theme.css"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"></script>
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+</head>
+<body>
+    <nav class="uk-navbar" style="background: #5F5E5F">
+        <div class="uk-navbar-flip">
+            <ul class="uk-navbar-nav">
+                <li><a href="https://skillion.com.au" class="top-logo">Skillion</a></li>
+                <li><a href="/seller/r2XI3VkW3eG3M1A0RgsW">Shop Skillion</a></li>
+                <li><a href="/purchases">My Skillions</a></li>
+                <li><a href="/payments">My Payments</a></li>
+            </ul>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                {% if name %}
+                <li><a href="/profile">Profile</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div style="padding: 320px; text-align: center;">
+        {% if notification == 'success' %}
+          <h2 style="font-family: Lato; color: #FFB02E;">
+          {%if notification == 'success' %}
+            Your test ride has been succesfully scheduled for {{appointment}}
+          {% else %}
+            Sorry mate! It looks like you already have an appointment on your calender for that time!
+            <a href='/book-test-ride' id='reload'>Try again!</a>
+          {% endif %}
+          </h2>
+        <p style="color: #FFF;">
+            <a href="/">Back home!</a>
+        </p>
+    </div>
+</body>
+</html>
