@@ -28,7 +28,7 @@
     <div style="padding: 320px; text-align: center;">
           <h2 style="font-family: Lato; color: #FFB02E;">
           {%if notification == 'success' %}
-            Thanks for scheduling an appointment, {{session['user']['name_first']}}! Check your inbox at {{email}}
+            Thanks for scheduling an appointment, {{session['user']['name_first']}}! Check your inbox at <a href='mailto:{{email}}'>{{email}}</a>
           {% else %}
             Sorry mate! Something went wrong on our end. We'll try to do better next time! 
             <a href='/test-ride' id='reload'>Try again!</a>
