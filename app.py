@@ -1046,7 +1046,7 @@ def scheduleTestRide():
         email = request.form['email']
         payload = {'email':email, 'first_name': first_name}
         headers = {'Content-type': 'application/json'}
-        thing = requests.post(POST_URL, data=payload, headers=headers)
+        thing = requests.post(POST_URL, data=json.dumps(payload), headers=headers)
 	if thing.status_code == '200':
             return redirect('/test-ride-confirmation/success?email={}&name={}'.format(email,first_name))
         else:
