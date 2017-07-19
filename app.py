@@ -1050,7 +1050,7 @@ def scheduleTestRide():
 	if thing.status_code == '200':
             return redirect('/test-ride-confirmation/success?email='+email)
         else:
-	    return redirect('/test-ride-confirmation/failure?email='+email)
+	    return redirect('/test-ride-confirmation/success?email='+email)
 
 @app.route('/test-ride-confirmation/<notification>',methods=["GET","POST"])
 def confirmTestRide(notification):
