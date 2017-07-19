@@ -1065,11 +1065,11 @@ def confirmMeeting(name):
     data = {'name': name, 'appt': appt, 'status': status}
     return render_template('confirmation.html',context=data)
 
-@app.route('/data',methods=['POST',"GET"])
+@app.route('/data',methods=['POST'])
 def getData():
     if request.method == 'POST':
 	body = ''
-	for thing in request.form:
+	for thing in request.data:
 	    body += str(request.form[thing]) + '\n'
 	return "{}".format(body)
 	
