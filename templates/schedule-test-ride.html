@@ -8,6 +8,17 @@
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"></script>
     <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+    <style>
+        input#first_name {margin: 10px; border: none; background: transparent; border-bottom: 1px solid white; text-align: center; padding: 10px; font-size: 24px; border-radius: 5px; color: white;}
+
+        input#email {margin: 10px; border: none; background: transparent; border-bottom: 1px solid white; text-align: center; padding: 10px; font-size: 24px; border-radius: 5px; color: white}
+
+        input#first_name:focus {outline: none; border-bottom: 1px solid gray; transition: .6s ease;}
+
+        input#email:focus {outline: none; border-bottom: 1px solid gray; transition: .6s ease;}
+
+        input[type='submit']{color: white; background: transparent; outline: none; border: none; font-size: 24px; border-bottom: 2px solid black; padding: 0; width: 100%; height: 100%; position: absolute; left: -1.5%; top: 15%}
+        </script>
 </head>
 <body>
     <nav class="uk-navbar" style="background: #5F5E5F">
@@ -32,11 +43,6 @@
           <input type='text' id='email' name='email' placeholder='Your email address'>
           <input type='submit' id='submit' name='submit' value='send now!'>
         </form>
-        <p style="color: #FFF;">
-            <a href="/">Back home!</a>
-        </p>
     </div>
 </body>
 </html>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
