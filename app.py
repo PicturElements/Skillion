@@ -1046,5 +1046,10 @@ def scheduleTestRide():
     requests.post(POST_URL, data=payload, headers=headers)
     return "200 OK"
 
+@app.route('test-ride-confirmation',methods=["GET","POST"])
+def confirmTestRide():
+	notification = request.args.get('notification')
+	return render_template('test-ride.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
