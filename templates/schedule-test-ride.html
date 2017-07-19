@@ -20,6 +20,8 @@
         input#submit {color: white; background: transparent; border: none; border-bottom: 1px solid; padding: 10px; border-radius: 5px; font-size: 24px}
 
         input#submit:hover {color: orange; transition: .6s ease; cursor: pointer}
+        
+        input#submit:focus {outline: none}
 
     </style>
 </head>
@@ -40,6 +42,7 @@
         </div>
     </nav>
     <div style="padding: 320px; text-align: center;">
+        <h2 style='color: orange'>Book your test ride below!</h2>
         <form id='schedule' method='post'>
           <input type='text' id='first_name' name='first_name' placeholder='Your first name'>
           <input type='text' id='email' name='email' placeholder='Your email address'>
