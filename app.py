@@ -1037,14 +1037,17 @@ def finance_your_bike():
 
 @app.route('/test-ride', methods=["GET","POST"])
 def scheduleTestRide():
-    import json 
-    POST_URL="https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=test-drive"
-    first_name = request.form['your-name']
-    email = request.form['your-phone']
-    payload = {'email':email, 'first_name': first_name}
-    headers = {'Content-type': 'application/json'}
-    requests.post(POST_URL, data=payload, headers=headers)
-    return "200 OK"
+    if request.method == 'GET':
+        return render_template('schedule-test-ride.html')
+    else:
+        import json 
+        POST_URL="https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=test-drive"
+        first_name = request.form['first_name']
+        email = request.form['email']
+        payload = {'email':email, 'first_name': first_name}
+        headers = {'Content-type': 'application/json'}
+        requests.post(POST_URL, data=payload, headers=headers)
+        return "200 OK"
 
 @app.route('test-ride-confirmation',methods=["GET","POST"])
 def confirmTestRide():
