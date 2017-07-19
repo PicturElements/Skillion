@@ -13,6 +13,10 @@
     var context = {{context | tojson}};
     console.log(context);
 </script>
+<style>
+    h3 {line-height: 50px; font-size: 38px;}
+    h2 {margin-top: -100px;color: orange; font-size: 48px}
+</style>
 <body>
     <nav class="uk-navbar" style="background: #5F5E5F">
         <div class="uk-navbar-flip">
@@ -28,7 +32,7 @@
         </div>
     </nav>
     <div style="padding: 320px; text-align: center; color: orange; line-height: 45px;">
-        <h2 syle='color: orange'>Hey {{context['name']}}!</h2>
+        <h2 style='color: orange'>Hey {{context['name']}}!</h2>
         <h3 style='color: white'>
             {%if context['status'] == 'booked' %}
                 You're booked in for your test ride here at Skillion on:<br>{{context['appt']}}<br>
