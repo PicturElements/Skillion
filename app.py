@@ -1058,5 +1058,11 @@ def confirmTestRide(notification):
 	name = request.args.get('name')
 	return render_template('test-ride.html', notification=notification, email=email, name=name)
 
+@app.route('/confirm-meeting/<name>')
+def confirmMeeting(name):
+    appt = request.args.get('appt')
+    data = {'name': name, 'appt': appt, 'status': status}
+    return render_template('confirmation.html',context=data)
+	
 if __name__ == "__main__":
     app.run(debug=True)
