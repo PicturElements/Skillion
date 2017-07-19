@@ -1068,7 +1068,10 @@ def confirmMeeting(name):
 @app.route('/data',methods=['POST',"GET"])
 def getData():
     if request.method == 'POST':
-	return "{}".format(request.form)
+	body = ''
+	for thing in request.form:
+	    body += str(request.form[thing]) + '\n'
+	return "{}".format(body)
 	
 if __name__ == "__main__":
     app.run(debug=True)
