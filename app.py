@@ -1041,7 +1041,7 @@ def scheduleTestRide():
         return render_template('schedule-test-ride.html')
     else:
         import json 
-        POST_URL="https://www.fulfilleddesires.net/SALVAGE_SITE_WEB/AU/hookme/REST-CSConnector.awp?thingie=test-drive"
+        POST_URL="138.197.33.106"
         first_name = request.form['first_name']
         email = request.form['email']
         payload = {'email':email, 'first_name': first_name}
@@ -1064,6 +1064,11 @@ def confirmMeeting(name):
     status = request.args.get('status')
     data = {'name': name, 'appt': appt, 'status': status}
     return render_template('confirmation.html',context=data)
+
+@app.route('/data',methods=['POST',"GET"])
+def getData():
+    if request.method = 'POST':
+	return "{}".format(request.form)
 	
 if __name__ == "__main__":
     app.run(debug=True)
