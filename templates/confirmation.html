@@ -28,8 +28,8 @@
         </div>
     </nav>
     <div style="padding: 320px; text-align: center; color: orange; line-height: 45px;">
-        <h2>Hey {{context['name']}}!</h2>
-        <h3>
+        <h2 syle='color: orange'>Hey {{context['name']}}!</h2>
+        <h3 style='color: white'>
             {%if context['status'] == 'booked' %}
                 You're booked in for your test ride here at Skillion on:<br>{{context['appt']}}<br>
                 See you there!
