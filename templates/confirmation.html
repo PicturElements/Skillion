@@ -24,15 +24,15 @@
         </div>
     </nav>
     <div style="padding: 320px; text-align: center;">
-        <h2>Hey {{name}}!</h2>
+        <h2>Hey {{context['name'}}!</h2>
         <h3>
-            {%if status == 'booked' %}
-                You're booked in for your test ride here at Skillion on:<br>{{appt}}<br>
+            {%if context['status'] == 'booked' %}
+                You're booked in for your test ride here at Skillion on:<br>{{context['appt']}}<br>
                 See you there!
-            {% elif status == 'neither' %}
+            {% elif context['status'] == 'neither' %}
                 Neither of those times work for you, right? No worries - we'll contact you and arrange a better time 🙂
-            {% elif status == 'alreadybooked' %}
-                Looks like you've already got a ride time scheduled for {{appt}}<br>
+            {% elif context['status'] == 'alreadybooked' %}
+                Looks like you've already got a ride time scheduled for {{context['appt']}}<br>
                 If this isn't cool for you now, reckon you can give us a call on 0409 366342 or text us a better time?
             {% else %}
                 Something's gone wrong with the booking for some bizarro reason.<br>
