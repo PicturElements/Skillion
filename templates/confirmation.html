@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
 </head>
+<script>
+    var context = {{context}};
+    console.log(context);
+</script>
 <body>
     <nav class="uk-navbar" style="background: #5F5E5F">
         <div class="uk-navbar-flip">
@@ -24,7 +28,6 @@
         </div>
     </nav>
     <div style="padding: 320px; text-align: center;">
-        <h1>{{context['status']}}</h1>
         <h2>Hey {{context['name']}}!</h2>
         <h3>
             {%if context['status'] == 'booked' %}
