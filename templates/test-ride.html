@@ -30,7 +30,7 @@
           {%if notification == 'success' %}
             Thanks for scheduling an appointment, {{name}}! Check your inbox at <a href='mailto:{{email}}'>{{email}}</a> for more details!
           {% else %}
-            Sorry mate! Something went wrong on our end. We'll try to do better next time! 
+            Sorry, {{name}}! Something went wrong on our end. We'll try to do better next time!
             <a href='/test-ride' id='reload'>Try again!</a>
           {% endif %}
           </h2>
