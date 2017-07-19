@@ -1038,6 +1038,7 @@ def finance_your_bike():
 @app.route('/test-ride', methods=["GET","POST"])
 def scheduleTestRide():
     if request.method == 'GET':
+	return "{}".format(session['user'])
         return render_template('schedule-test-ride.html')
     else:
         import json 
