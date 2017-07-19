@@ -1061,6 +1061,7 @@ def confirmTestRide(notification):
 @app.route('/confirm-meeting/<name>')
 def confirmMeeting(name):
     appt = request.args.get('appt')
+    status = request.args.get('status')
     data = {'name': name, 'appt': appt, 'status': status}
     return render_template('confirmation.html',context=data)
 	
