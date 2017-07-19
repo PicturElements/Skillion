@@ -1069,7 +1069,7 @@ def confirmMeeting(name):
 def getData():
     if request.method == 'POST':
 	import json
-	return "{}".format(request.json)
+	return json.dumps(request.json)
 	
 if __name__ == "__main__":
     app.run(debug=True)
