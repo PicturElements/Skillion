@@ -1046,13 +1046,15 @@ def scheduleTestRide():
         email = request.form['email']
         payload = {'email':email, 'first_name': first_name}
         headers = {'Content-type': 'application/json'}
-        requests.post(POST_URL, data=payload, headers=headers)
-        return "200 OK"
+        thing = requests.post(POST_URL, data=payload, headers=headers)
+	if thing.status_code == '200':
+            return redirect('/test-ride-confirmation/success')
+        else:
+	    return redirect('/test-ride-confirmation/failure')
 
-@app.route('/test-ride-confirmation',methods=["GET","POST"])
-def confirmTestRide():
-	notification = request.args.get('notification')
-	return render_template('test-ride.html')
+@app.route('/test-ride-confirmation/<notification>',methods=["GET","POST"])
+def confirmTestRide(notification):
+	return render_template('test-ride.html', notification=notification)
 
 if __name__ == "__main__":
     app.run(debug=True)
