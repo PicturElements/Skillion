@@ -1048,9 +1048,9 @@ def scheduleTestRide():
         headers = {'Content-type': 'application/json'}
         thing = requests.post(POST_URL, data=payload, headers=headers)
 	if thing.status_code == '200':
-            return redirect('/test-ride-confirmation/success?email={}&name={}'.format(email,name))
+            return redirect('/test-ride-confirmation/success?email={}&name={}'.format(email,first_name))
         else:
-	    return redirect('/test-ride-confirmation/failure?email={}&name={}'.format(email,name))
+	    return redirect('/test-ride-confirmation/failure?email={}&name={}'.format(email,first_name))
 
 @app.route('/test-ride-confirmation/<notification>',methods=["GET","POST"])
 def confirmTestRide(notification):
