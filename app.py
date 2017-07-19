@@ -1068,7 +1068,8 @@ def confirmMeeting(name):
 @app.route('/data',methods=['POST'])
 def getData():
     if request.method == 'POST':
-	import json
+	with open('text.txt', 'a') as f:
+		f.write(str(json.dumps(request.json)))
 	return json.dumps(request.json)
 	
 if __name__ == "__main__":
