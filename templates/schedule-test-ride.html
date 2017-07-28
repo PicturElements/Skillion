@@ -35,7 +35,7 @@
         </div>
         <div class="uk-navbar-right">
             <ul class="uk-navbar-nav">
-                <li><a href="/guest/signup">Create an account!</a></li>
+                <li><a href="/products">BUY NOW</a></li>
             </ul>
         </div>
     </nav>
@@ -44,7 +44,7 @@
         <form id='schedule' method='post'>
           <input type='text' id='first_name' name='first_name' placeholder='Your first name'>
           <input type='text' id='email' name='email' placeholder='Your email address'>
-          <input type='submit' id='submit' name='submit' value='send now!'>
+          <input type='submit' id='submit' name='submit' value='BOOK'>
         </form>
     </div>
     <script>
@@ -52,7 +52,7 @@
 	        var submit = document.getElementById('submit'),
 		        email = document.getElementById('email'),
 		        firstName = document.getElementById('first_name'),
-		        validEmail = /[\w\.]{3,24}@{1}\w+\.{1}\w{3}$/g,
+		        validEmail = /[\w\.]{3,24}@{1}\w+\.{1}\w{3}/g,
 		        special = /\@\%\$\#\(\)\!\*/g;
 	        submit.style.opacity = 0
 	        submit.style.transition = '.5s ease';
