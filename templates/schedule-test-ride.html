@@ -52,8 +52,8 @@
 	        var submit = document.getElementById('submit'),
 		        email = document.getElementById('email'),
 		        firstName = document.getElementById('first_name'),
-		        validEmail = /[\w\.]{3,24}@{1}\w+\.{1}\w{3}/g,
-		        special = /\@\%\$\#\(\)\!\*/g;
+		        validEmail = /[\w\.]{3,24}@{1}\.+\.{1}\w{3}/g,
+		        special = /[\@\%\$\#\(\)\!\*1-9]/g;
 	        submit.style.opacity = 0
 	        submit.style.transition = '.5s ease';
 	        email.oninput = function() {
@@ -67,6 +67,7 @@
 		        }
 	        }
 	        firstName.oninput = function() {
+			firstName.value = firstName.replace(special, '');
 		        if (validEmail.test(email.value) && !special.test(firstName.value) && firstName.value != '') {
 			        submit.style.color = 'green';
 			        submit.style.opacity = 1;
