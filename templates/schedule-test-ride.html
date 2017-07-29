@@ -67,7 +67,7 @@
 		        }
 	        }
 	        firstName.oninput = function() {
-			firstName.value = firstName.value.replace(/[^\w-]+/g,"");
+			firstName.value = firstName.value.replace(/[^\w-]+_\d/g,"");
 		        if (validEmail.test(email.value) && name.test(firstName.value)) {
 			        submit.style.color = 'green';
 			        submit.style.opacity = 1;
