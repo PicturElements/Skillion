@@ -53,7 +53,6 @@
 		        email = document.getElementById('email'),
 		        firstName = document.getElementById('first_name'),
 		        validEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
-		        special = /^[a-zA-Z0-9!@#\$%\^\&*\)\(+=._-!@#$%^&*?><\?]+$/g,
 		    	name = /^[a-zA-Z\-]{2,30}$/;
 	        submit.style.opacity = 0
 	        submit.style.transition = '.5s ease';
@@ -68,7 +67,7 @@
 		        }
 	        }
 	        firstName.oninput = function() {
-			firstName.value = firstName.value.replace(special, '');
+			firstName.value = firstName.value.replace(/[\W_]+/g,"");
 		        if (validEmail.test(email.value) && name.test(firstName.value)) {
 			        submit.style.color = 'green';
 			        submit.style.opacity = 1;
