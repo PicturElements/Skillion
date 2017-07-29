@@ -57,7 +57,7 @@
 	        submit.style.opacity = 0
 	        submit.style.transition = '.5s ease';
 	        email.oninput = function() {
-			email.value = email.value.replace(/[^\w\d-_.]+/g,"")
+			email.value = email.value.replace(/[^\w\d-_\.@]+/g,"")
 		        if (validEmail.test(email.value)) {
                     submit.style.opacity = 1;
 			        submit.style.color = 'green';
