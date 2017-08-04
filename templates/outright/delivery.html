@@ -65,7 +65,7 @@
             <thead style="border-bottom: 1px #DDD solid">
                 <tr>
                     <th>Name</th>
-			<th>Cost <span class='cost-for-transaction'>({{transaction['currency']}})</span></th>
+		    <th>Cost ({{transaction['currency']}})</th>
                     <th style="display: none;">Applied Cost ({{transaction['currency']}})</th>
                     <th>Billing Address</th>
                     <th>Delivery Type</th>
@@ -75,7 +75,7 @@
                 {% for item in range(transaction['no_bikes']|int) %}
                 <tr>
                     <td style="font-size: 16px;">{{transaction['name']}}</td>
-                    <td class="sub_total">{{transaction['cost_per_item']}}</td>
+                    <td class="sub_total"><span class='cost-for-transaction'>{{transaction['cost_per_item']}}</span></td>
                     <td style="display: none;" class="sub_paid">{{transaction['cost_per_item']}}</td>
                     <td><button class="uk-button uk-button-primary uk-button-small address_btn" style="color: #FFF; background: #2ecc71;" id="addAddress_btn" data-mn="{{loop.index}}" data-holder>Set Billing Address</button></td>
                     <td id="{{loop.index}}_postal">--</td>
