@@ -65,7 +65,7 @@
             <thead style="border-bottom: 1px #DDD solid">
                 <tr>
                     <th>Name</th>
-			<th>Cost <span id='cost-for-transaction'>({{transaction['currency']}})</span></th>
+			<th>Cost <span class='cost-for-transaction'>({{transaction['currency']}})</span></th>
                     <th style="display: none;">Applied Cost ({{transaction['currency']}})</th>
                     <th>Billing Address</th>
                     <th>Delivery Type</th>
@@ -471,8 +471,11 @@ $(".num-only").on("keydown", function (e) {
 </script>
 <script>
 (function() {
-	var costForTransaction = $('cost-for-transaction');
-	costForTransaction.html(costForTransaction.html().toFixed(2))
+	var costForTransaction = $('#cost-for-transaction');
+	for (let i=0;i<costForTransaction.length;i++){
+		let thing = costForTransaction[i];
+		thing.html(thing.html().toFixed(2))
+	}
 })();
 </script>
 <script>
