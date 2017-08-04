@@ -474,7 +474,6 @@ $(".num-only").on("keydown", function (e) {
 	var costForTransaction = $('.cost-for-transaction');
 	for (let i=0;i<costForTransaction.length;i++){
 		let thing = $(costForTransaction[i]);
-		console.log(thing.html());
 		thing.html((parseFloat(thing.html())).toFixed(2))
 	}
 })();
