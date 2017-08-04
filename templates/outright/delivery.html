@@ -473,7 +473,7 @@ $(".num-only").on("keydown", function (e) {
 (function() {
 	var costForTransaction = $('.cost-for-transaction');
 	for (let i=0;i<costForTransaction.length;i++){
-		let thing = costForTransaction[i];
+		let thing = $(costForTransaction[i]);
 		thing.html(thing.html().toFixed(2))
 	}
 })();
